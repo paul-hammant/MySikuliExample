@@ -6,6 +6,7 @@ import org.sikuli.script.FindFailed;
 import org.sikuli.script.Key;
 import org.sikuli.script.KeyModifier;
 import org.sikuli.script.Match;
+import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
 
 import static junit.framework.Assert.assertNotNull;
@@ -16,7 +17,10 @@ public class MySikuliTest {
     public void testSomething() throws FindFailed {
         App.focus("firefox");
         Screen screen = new Screen();
-        screen.click("src/images/urlField.png", 0);
+        Pattern p = new Pattern("src/images/backForwardButtons.png");
+        Match urlField = screen.wait(p.similar(0.7f), 3);
+        urlField.setTargetOffset(70, 0);
+        urlField.click();
         screen.type("http://currentlabel.co.uk/flexuscalculus/");
         screen.type(Key.ENTER);
         screen.wait("src/images/pompei.png", 20);
