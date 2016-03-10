@@ -11,18 +11,13 @@ import org.sikuli.script.Screen;
 
 import static junit.framework.Assert.assertNotNull;
 
-public class MySikuliTest {
+public class MySikuliTest extends Utilities {
 
     @Test
     public void testSomething() throws FindFailed {
         App.focus("firefox");
         Screen screen = new Screen();
-        Pattern p = new Pattern("src/images/backForwardButtons.png");
-        Match urlField = screen.wait(p.similar(0.7f), 3);
-        urlField.setTargetOffset(70, 0);
-        urlField.click();
-        screen.type("http://currentlabel.co.uk/flexuscalculus/");
-        screen.type(Key.ENTER);
+        goToURL(screen, "http://currentlabel.co.uk/flexuscalculus/");
         screen.wait("src/images/pompei.png", 20);
         Match pompei = screen.find("src/images/pompei.png");
         pompei.setTargetOffset(70, 0);
