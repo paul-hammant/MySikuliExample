@@ -20,6 +20,10 @@
         <enabled>true</enabled>
       </snapshots>
     </repository>
+    <repository>
+      <id>mulesoft</id>
+      <url>https://repository.mulesoft.org/nexus/content/repositories/public/</url>
+    </repository>
   </repositories>
 
   <dependencies>
@@ -27,6 +31,11 @@
       <groupId>com.sikulix</groupId>
       <artifactId>sikulixapi</artifactId>
       <version>1.1.2</version>
+    </dependency>
+    <dependency>
+      <groupId>com.github.vidstige</groupId>
+      <artifactId>jadb</artifactId>
+      <version>-v1.0-g94ebf38-23</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
