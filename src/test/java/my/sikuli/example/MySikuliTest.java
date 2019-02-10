@@ -1,5 +1,6 @@
 package my.sikuli.example;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.sikuli.script.App;
 import org.sikuli.script.FindFailed;
@@ -13,7 +14,7 @@ import static junit.framework.Assert.assertNotNull;
 
 public class MySikuliTest extends Utilities {
 
-    @Test
+    @Test @Ignore
     public void testSomething() throws FindFailed {
         App.focus("firefox");
         Screen screen = new Screen();
