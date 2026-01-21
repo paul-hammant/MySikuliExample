@@ -1,10 +1,19 @@
 # MySikuliExample
-My Sikuli Example (with Maven)
 
-mvn install
+My Sikuli Example with Maven and JUnit.
 
-... to run it (Windows and Mac only for now).
+https://github.com/user-attachments/assets/fd0cbfff-05e1-4788-98c3-5ee8f013d84b
 
-See my blog entry: http://paulhammant.com/2015/02/21/playing-with-sikuli-for-desktop-automation/
+Run it with:
 
-Here's a great (minimalist) example in JRuby by Roman Storm: https://github.com/rstormsf/Sikulix-jruby-example -
+```sh
+mvn test
+```
+
+Windows and Mac only.
+
+See my blog entry: <http://paulhammant.com/2015/02/21/playing-with-sikuli-for-desktop-automation/>
+
+Here's a great (minimalist) example in JRuby by Roman Storm: <https://github.com/rstormsf/Sikulix-jruby-example> -
+
+Other examples: <https://github.com/search?q=sikuli&type=repositories>

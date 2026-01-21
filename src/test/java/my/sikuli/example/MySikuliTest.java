@@ -1,59 +1,39 @@
 package my.sikuli.example;
 
-import org.junit.Ignore;
-import org.junit.Test;
-import org.sikuli.script.App;
+import org.junit.jupiter.api.Test;
+import org.sikuli.script.Button;
 import org.sikuli.script.FindFailed;
-import org.sikuli.script.Key;
+import org.sikuli.script.ImagePath;
 import org.sikuli.script.KeyModifier;
 import org.sikuli.script.Match;
-import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
 
-import static junit.framework.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class MySikuliTest extends Utilities {
 
-    @Test @Ignore
+    @Test
     public void testSomething() throws FindFailed {
-        App.focus("firefox");
+        ImagePath.add("src/images");
+        String browserName = focusBrowser();
         Screen screen = new Screen();
-        goToURL(screen, "http://currentlabel.co.uk/flexuscalculus/");
-        screen.wait("src/images/pompei.png", 20);
-        Match pompei = screen.find("src/images/pompei.png");
-        pompei.setTargetOffset(70, 0);
-        pompei.click();
-        clearField(screen);
-        screen.type("0");
-        pompei.setTargetOffset(170, 0);
-        pompei.click();
-        clearField(screen);
-        screen.type("0");
-        pompei.setTargetOffset(270, 0);
-        pompei.click();
-        clearField(screen);
-        screen.type("0");
-        pompei.setTargetOffset(370, 0);
-        pompei.click();
-        clearField(screen);
-        screen.type("0");
-        pompei.setTargetOffset(470, 0);
-        pompei.click();
-        clearField(screen);
-        screen.type("0");
-        pompei.setTargetOffset(470, -70);
-        pompei.click(); // deselect last cell of popei row.
+        goToURL(screen, "https://example.com", browserName);
 
-        assertNotNull("Pompei row should be zeroed out",
-                screen.wait("src/images/pompeiRowOfZeros.png", 5));
+        Match exampleWord = screen.wait("Exa.png", 5);
+        exampleWord.doubleClick();
+        assertNotNull(screen.wait("selectedExample.png", 5),
+                "Example word should be selected");
 
+        exampleWord.setTargetOffset(-70, 0);
+        exampleWord.click();
+        exampleWord.mouseDown(Button.LEFT);
+        exampleWord.mouseMove(300, 0);
+        exampleWord.mouseUp(Button.LEFT);
+        assertNotNull(screen.wait("selectedExampleDomain.png", 5),
+                "Example Domain words should be selected");
+
+        selectAll(screen);
+        assertNotNull(screen.wait("selectedAll.png", 5),
+                "Pompei row should be zeroed out");
     }
-
-
-
-    private void clearField(Screen screen) {
-        screen.type("a", KeyModifier.CMD);
-        screen.type(Key.BACKSPACE);
-    }
-
 }

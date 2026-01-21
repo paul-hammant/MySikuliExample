@@ -1,5 +1,4 @@
 target
-src/images/LG.png
-src/images/LGLGL.png
 .idea
 *.iml
+.vscode
